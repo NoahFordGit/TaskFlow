@@ -26,17 +26,17 @@ The project is being built as a personal full-stack development project, with a 
 
 ### Frontend
 
-* **React** — UI library for building the application interface
-* **TypeScript** — Static typing for JavaScript
-* **Tailwind CSS** — Utility-first CSS framework for styling
-* **Vite** — Frontend development server and build tool
+* **React** - UI library for building the application interface
+* **TypeScript** - Static typing for JavaScript
+* **Tailwind CSS** - Utility-first CSS framework for styling
+* **Vite** - Frontend development server and build tool
 
 ### Backend
 
-* **Python** — Backend programming language
-* **FastAPI** — Web framework used to build the REST API
-* **SQLAlchemy** — ORM used to interact with the database
-* **Pydantic** — Data validation and API schemas
+* **Python** - Backend programming language
+* **FastAPI** - Web framework used to build the REST API
+* **SQLAlchemy** - ORM used to interact with the database
+* **Pydantic** - Data validation and API schemas
 
 ### Database
 
@@ -44,10 +44,10 @@ The project is being built as a personal full-stack development project, with a 
 
 ### Development Tools
 
-* **Git** — Version control
-* **GitHub** — Source code hosting and project management
-* **npm** — Frontend package management
-* **Python virtual environments** — Backend dependency isolation
+* **Git** - Version control
+* **GitHub** - Source code hosting and project management
+* **npm** - Frontend package management
+* **Python virtual environments** - Backend dependency isolation
 
 ## API
 
