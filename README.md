@@ -40,7 +40,7 @@ The project is being built as a personal full-stack development project, with a 
 
 ### Database
 
-* **PostgreSQL** — Relational database used to store application data
+* **PostgreSQL** - Relational database used to store application data
 
 ### Development Tools
 
