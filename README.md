@@ -15,14 +15,13 @@ The project is being built as a personal full-stack development project, with a 
 * Delete tasks
 * Mark tasks as completed
 * Assign task priorities
-
   * Low
   * Medium
   * High
 * Set task due dates
 * Store task data in PostgreSQL
 * REST API for task management
-* 
+  
 ## Tech Stack
 
 ### Frontend
