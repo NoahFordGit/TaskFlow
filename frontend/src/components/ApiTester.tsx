@@ -1,8 +1,15 @@
-import { getTasks, getTask, createTask, updateTask, deleteTask } from '../services/testService';
+import { getTasks, getTask, createTask, updateTask, deleteTask } from '../services/taskService';
 import {useState, useEffect} from 'react';
+import type { Priority } from '../types/task';
 
 function ApiTester() {
     const [taskId, setTaskId] = useState<number>(0);
+
+    const [title, setTitle] = useState<string>('');
+    const [description, setDescription] = useState<string>('');
+    const [priority, setPriority] = useState<Priority>('medium');
+    const [due_date, setDueDate] = useState<string>('');
+
     async function handleGetTasks() {
         const tasks = await getTasks();
 
@@ -21,10 +28,10 @@ function ApiTester() {
         event.preventDefault();
 
         const newTask = {
-            title: "New Task",
-            description: "This is a new task",
-            completed: false,
-            priority: "medium",
+            title,
+            description,
+            priority,
+            due_date
         };
 
         const createdTask = await createTask(newTask);
@@ -58,21 +65,44 @@ function ApiTester() {
                 </button>
             </form>
 
-            // go back in here and make this work
             <form onSubmit={handleCreateTask}>
                 <label>
-                    Task ID:
+                    Title:
                     <input 
-                        type="number"
-                        value={taskId}
-                        onChange={(event) => 
-                            setTaskId(Number(event.target.value))
-                        }
+                        type="text"
+                        value={title}
+                        onChange={(event) => setTitle(event.target.value)}
                     />
                 </label>
-
+                <label>
+                    Description:
+                    <input 
+                        type="text"
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
+                    />
+                </label>
+                <label>
+                    Priority:
+                    <select 
+                        value={priority}
+                        onChange={(event) => setPriority(event.target.value as Priority)}
+                    >
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </label>
+                <label>
+                    Due Date:
+                    <input 
+                        type="date"
+                        value={due_date}
+                        onChange={(event) => setDueDate(event.target.value)}
+                    />
+                </label>
                 <button type="submit">
-                    Get Task
+                    Create Task
                 </button>
             </form>
         </div>
