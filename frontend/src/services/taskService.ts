@@ -22,7 +22,7 @@ export async function getTask(taskId: number): Promise<Task> {
     return response.json();
 }
 
-export async function createTask(task: TaskCreate): Promise<Task> {
+export async function createTask(task: TaskCreate): Promise<TaskCreate> {
     const response = await fetch(`${API_URL}/tasks/`, {
         method: "POST",
         headers: {
