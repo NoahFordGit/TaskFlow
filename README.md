@@ -28,7 +28,7 @@ The project is being built as a personal full-stack development project, with a 
 
 * **React** - UI library for building the application interface
 * **TypeScript** - Static typing for JavaScript
-* **Tailwind CSS** - Utility-first CSS framework for styling
+* **CSS3** - Styling and responsive design
 * **Vite** - Frontend development server and build tool
 
 ### Backend
