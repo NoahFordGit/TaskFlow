@@ -1,0 +1,36 @@
+.dashboard-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dashboard-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dashboard-header__eyebrow {
+  margin: 0;
+  color: #6366f1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.dashboard-header__title {
+  margin: 0;
+  color: #111827;
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+  margin-bottom: 4px;
+}
+
+.dashboard-header__subtitle {
+  margin: 0;
+  color: #475569;
+  font-size: 1rem;
+  margin-left: 2px;
+}
