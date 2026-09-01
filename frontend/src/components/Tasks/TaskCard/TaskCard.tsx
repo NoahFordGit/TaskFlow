@@ -3,13 +3,15 @@ import type { Task } from "../../../types/task";
 
 interface TaskCardProps {
     task: Task;
+    variant?: 'default' | 'overdue';
 }
 
-function TaskCard({ task }: TaskCardProps) {
+function TaskCard({ task, variant = 'default' }: TaskCardProps) {
     const priorityClass = `task-card__priority task-card__priority--${task.priority}`;
+    const isOverdue = variant === 'overdue' && !task.completed;
 
     return (
-        <article className={`task-card ${task.completed ? 'task-card--completed' : ''}`}>
+        <article className={`task-card ${task.completed ? 'task-card--completed' : ''} ${isOverdue ? 'task-card--overdue' : ''}`}>
             <label className="task-card__checkbox-wrap">
                 <input
                     className="task-card__checkbox"
@@ -29,8 +31,15 @@ function TaskCard({ task }: TaskCardProps) {
                     <p className="task-card__description">{task.description}</p>
                 )}
 
-                {task.due_date && (
-                    <span className="task-card__due-date">Due {task.due_date}</span>
+                {(task.due_date || isOverdue) && (
+                    <div className="task-card__badges">
+                        {task.due_date && (
+                            <span className="task-card__due-date">Due {task.due_date}</span>
+                        )}
+                        {isOverdue && (
+                            <span className="task-card__late-badge">LATE</span>
+                        )}
+                    </div>
                 )}
             </div>
         </article>
