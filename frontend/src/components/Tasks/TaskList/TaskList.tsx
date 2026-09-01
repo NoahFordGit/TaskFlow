@@ -1,6 +1,7 @@
 import './TaskList.css';
 import type { Task } from "../../../types/task";
 import TaskCard from "../TaskCard/TaskCard";
+import TaskListHeader from "../TaskListHeader/TaskListHeader";
 
 interface TaskListProps {
     tasks: Task[];
@@ -9,13 +10,25 @@ interface TaskListProps {
 function TaskList({ tasks }: TaskListProps) {
     return (
         <section className="task-list" aria-label="Task list">
-            {tasks.length === 0 ? (
-                <div className="task-list__empty">No tasks yet. Add one to get started.</div>
-            ) : (
-                tasks.map((task) => (
-                    <TaskCard key={task.id} task={task} />
-                ))
-            )}
+            <TaskListHeader />
+
+            <div className="task-list__content">
+                {tasks.length === 0 ? (
+                    <div className="task-list__empty">No tasks yet. Add one to get started.</div>
+                ) : (
+                    tasks.map((task) => {
+                        const isOverdue = !!task.due_date && new Date(task.due_date) < new Date() && !task.completed;
+
+                        return (
+                            <TaskCard
+                                key={task.id}
+                                task={task}
+                                variant={isOverdue ? 'overdue' : 'default'}
+                            />
+                        );
+                    })
+                )}
+            </div>
         </section>
     );
 }

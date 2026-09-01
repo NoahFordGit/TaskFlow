@@ -1,14 +1,30 @@
 .task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+}
+
+.task-list__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px;
 }
 
 .task-list__empty {
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
-  color: #475569;
-  border-radius: 14px;
-  padding: 24px;
-  text-align: center;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    color: #475569;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
 }
