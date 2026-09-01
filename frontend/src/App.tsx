@@ -1,6 +1,8 @@
 import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
+import DashboardHeader from './components/DashboardHeader/DashboardHeader';
 import TaskList from './components/Tasks/TaskList/TaskList';
+import TaskOverview from './components/TaskOverview/TaskOverview';
 
 import type { Task } from './types/task';
 import { useState, useEffect } from 'react';
@@ -21,15 +23,9 @@ function App() {
   return (
     <div className="app-shell">
       <Sidebar />
-
       <main className="content-panel">
-        <header className="content-panel__header">
-          <div>
-            <p className="eyebrow">Today</p>
-            <h2>Tasks</h2>
-          </div>
-        </header>
-
+        <DashboardHeader />
+        <TaskOverview />
         <TaskList tasks={tasks} />
       </main>
     </div>

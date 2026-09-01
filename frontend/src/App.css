@@ -37,11 +37,14 @@ button, input {
 
 .content-panel {
   flex: 1;
-  padding: 40px 36px;
+  padding: 40px 36px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .content-panel__header {
-  margin-bottom: 24px;
+  margin-bottom: 4px;
 }
 
 .eyebrow {
