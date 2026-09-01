@@ -1,13 +1,16 @@
 .dashboard-header {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 0;
 }
 
 .dashboard-header__content {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: baseline;
+  gap: 8px;
 }
 
 .dashboard-header__eyebrow {
@@ -22,15 +25,15 @@
 .dashboard-header__title {
   margin: 0;
   color: #111827;
-  font-size: clamp(2rem, 3vw, 2.7rem);
-  line-height: 1.05;
-  letter-spacing: -0.06em;
-  margin-bottom: 4px;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
 }
 
 .dashboard-header__subtitle {
   margin: 0;
   color: #475569;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-left: 2px;
+  white-space: nowrap;
 }
