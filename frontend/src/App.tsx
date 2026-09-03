@@ -1,8 +1,8 @@
 import './App.css';
-import Sidebar from './components/Sidebar/Sidebar';
-import DashboardHeader from './components/DashboardHeader/DashboardHeader';
-import TaskList from './components/Tasks/TaskList/TaskList';
-import TaskOverview from './components/TaskOverview/TaskOverview';
+import Sidebar from './components/dashboard/Sidebar/Sidebar';
+import DashboardHeader from './components/dashboard/DashboardHeader/DashboardHeader';
+import TaskList from './components/tasks/TaskList/TaskList';
+import TaskOverview from './components/tasks/TaskOverview/TaskOverview';
 
 import type { Task } from './types/task';
 import { useState, useEffect } from 'react';
