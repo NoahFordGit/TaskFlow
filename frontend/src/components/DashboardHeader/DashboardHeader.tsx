@@ -4,7 +4,17 @@ import { useState, useEffect } from 'react';
 import type { Task } from '../../types/task';
 
 function DashboardHeader() {
-    const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    const now = new Date();
+    const day = now.getDate();
+
+    const suffix =
+        day % 10 === 1 && day !== 11 ? 'st' :
+        day % 10 === 2 && day !== 12 ? 'nd' :
+        day % 10 === 3 && day !== 13 ? 'rd' : 
+        'th';
+
+
+    const date = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }) + suffix;
     const [tasksDueToday, setTasksDueToday] = useState<Task[]>([]);
     
     useEffect(() => {
