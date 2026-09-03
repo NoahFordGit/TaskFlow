@@ -1,6 +1,6 @@
-import { getTasks, getTask, createTask, updateTask, deleteTask } from '../../services/taskService';
+import { getTasks, getTask, createTask, updateTask, deleteTask } from '../../../services/taskService';
 import { useState } from 'react';
-import type { Priority } from '../../types/task';
+import type { Priority } from '../../../types/task';
 import './ApiTester.css';
 
 function ApiTester() {

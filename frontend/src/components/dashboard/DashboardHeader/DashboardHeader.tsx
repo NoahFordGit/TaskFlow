@@ -1,7 +1,7 @@
 import './DashboardHeader.css';
-import { getTasks } from '../../services/taskService';
+import { getTasks } from '../../../services/taskService';
 import { useState, useEffect } from 'react';
-import type { Task } from '../../types/task';
+import type { Task } from '../../../types/task';
 
 function DashboardHeader() {
     const now = new Date();
