@@ -1,26 +1,25 @@
 # TaskFlow
 
-TaskFlow is a full-stack task management application designed to help users organize, prioritize, and track their tasks.
+TaskFlow is a full-stack task management application built with React, TypeScript, FastAPI, SQLAlchemy, and PostgreSQL. It allows users to create, organize, update, and track tasks through a web-based interface.
 
-The project is being built as a personal full-stack development project, with a focus on learning and applying modern frontend and backend development practices.
+The project is being developed as a personal full-stack development project, with a focus on learning and applying modern frontend, backend, database, and API development practices.
 
 ## Features
 
 ### Current Features
 
-* Create tasks
-* View all tasks
-* View individual tasks
-* Update tasks
-* Delete tasks
+* Create, view, update, and delete tasks
 * Mark tasks as completed
-* Assign task priorities
-  * Low
-  * Medium
-  * High
+* Assign task priorities: `Low, Medium, High`
 * Set task due dates
-* Store task data in PostgreSQL
+* Dashboard with task overview and counts
+* Task list interface
+* Task creation modal
+* Component-based React frontend
+* Persistent task storage with PostgreSQL
 * REST API for task management
+* Request and response validation with Pydantic
+* ORM-based database access with SQLAlchemy
   
 ## Tech Stack
 
@@ -42,24 +41,46 @@ The project is being built as a personal full-stack development project, with a 
 
 * **PostgreSQL** - Relational database used to store application data
 
-### Development Tools
+## Architecture
 
-* **Git** - Version control
-* **GitHub** - Source code hosting and project management
-* **npm** - Frontend package management
-* **Python virtual environments** - Backend dependency isolation
+TaskFlow uses a client-server architecture with a React frontend communicating
+with a FastAPI REST API. SQLAlchemy provides ORM-based database access to
+PostgreSQL.
 
+```text
+┌──────────────────────┐
+│  React + TypeScript  │
+│      Frontend        │
+└──────────┬───────────┘
+           │
+           │ HTTP / REST
+           ▼
+┌──────────────────────┐
+│       FastAPI        │
+│       Backend        │
+└──────────┬───────────┘
+           │
+           │ SQLAlchemy ORM
+           ▼
+┌──────────────────────┐
+│     PostgreSQL       │
+│      Database        │
+└──────────────────────┘
+```
+    
 ## API
 
-The backend exposes a REST API for interacting with tasks.
+TaskFlow exposes a REST API built with FastAPI. 
+Pydantic schemas are used for request validation and response serialization,
+while SQLAlchemy handles database access.
 
-| Method | Endpoint           | Description         |
-| ------ | ------------------ | ------------------- |
-| GET    | `/tasks/`          | Get all tasks       |
-| GET    | `/tasks/{task_id}` | Get a specific task |
-| POST   | `/tasks/`          | Create a task       |
-| PATCH  | `/tasks/{task_id}` | Update a task       |
-| DELETE | `/tasks/{task_id}` | Delete a task       |
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/tasks/` | Get all tasks |
+| GET | `/tasks/{task_id}` | Get a specific task |
+| POST | `/tasks/` | Create a task |
+| PATCH | `/tasks/{task_id}` | Update a task |
+| DELETE | `/tasks/{task_id}` | Delete a task |
 
 ## Running Locally
 
@@ -68,6 +89,16 @@ The backend exposes a REST API for interacting with tasks.
 * Python 3.11+
 * Node.js
 * PostgreSQL
+
+### PostgreSQL
+
+Create a PostgreSQL database named `taskflow`.
+
+Create a `.env` file in `backend/` with your database connection string:
+
+```bash
+DATABASE_URL=postgresql://username:password@localhost:5432/taskflow
+```
 
 ### Backend
 
@@ -88,15 +119,6 @@ npm run dev
 ```
 
 Vite will provide the URL for the frontend.
-
-### Environment Variables
-
-Create a `.env` file in `backend/`:
-
-```env
-DATABASE_URL=postgresql://username:password@localhost:5432/taskflow
-```
-
 
 ## License
 
