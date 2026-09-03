@@ -17,7 +17,7 @@ function TaskList({ tasks }: TaskListProps) {
                     <div className="task-list__empty">No tasks yet. Add one to get started.</div>
                 ) : (
                     tasks.map((task) => {
-                        const isOverdue = !!task.due_date && new Date(task.due_date) < new Date() && !task.completed;
+                        const isOverdue = !!task.due_date && task.due_date < new Date().toISOString().split('T')[0] && !task.completed;
 
                         return (
                             <TaskCard
