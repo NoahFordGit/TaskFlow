@@ -65,3 +65,18 @@
   transform: translateY(-1px);
   box-shadow: 0 16px 24px rgba(96, 165, 250, 0.34);
 }
+
+.create-task-card__button:focus-visible {
+  outline: 3px solid rgba(165, 180, 252, 0.55);
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .create-task-card {
+    min-height: 112px;
+  }
+
+  .create-task-card__title {
+    font-size: 1.1rem;
+  }
+}

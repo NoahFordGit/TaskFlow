@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getTasks } from '../../services/taskService';
-import type { Task } from '../../types/task';
+import { getTasks } from '../../../services/taskService';
+import type { Task } from '../../../types/task';
 
 import './TaskOverview.css';
 import './TaskCountCard/TaskCountCard.css';
@@ -8,7 +8,11 @@ import './CreateTaskCard/CreateTaskCard.css';
 import TaskCountCard from './TaskCountCard/TaskCountCard';
 import CreateTaskCard from './CreateTaskCard/CreateTaskCard';
 
-function TaskOverview() {
+interface TaskOverviewProps {
+    onTaskCreated: () => Promise<void>;
+}
+
+function TaskOverview({ onTaskCreated }: TaskOverviewProps) {
     const [tasks, setTasks] = useState<Task[]>([]);
 
     useEffect(() => {
@@ -27,7 +31,7 @@ function TaskOverview() {
     return (
         <section className="task-overview" aria-label="Task overview">
             <div className="task-overview__cards">
-                <CreateTaskCard />
+                <CreateTaskCard onTaskCreated={onTaskCreated} />
                 <TaskCountCard count={totalTasks} title="All Tasks" />
                 <TaskCountCard count={pendingTasks} title="Pending Tasks" variant="default" />
                 <TaskCountCard count={overdueTasks} title="Overdue Tasks" variant={overdueTasks > 0 ? 'overdue' : 'default'} />

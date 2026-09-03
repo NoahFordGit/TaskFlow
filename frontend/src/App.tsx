@@ -11,12 +11,12 @@ import { getTasks } from './services/taskService';
 function App() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  useEffect(() => {
-    async function loadTasks() {
-      const data = await getTasks();
-      setTasks(data);
-    }
+  async function loadTasks() {
+    const data = await getTasks();
+    setTasks(data);
+  }
 
+  useEffect(() => {
     loadTasks();
   }, [])
 
@@ -25,7 +25,7 @@ function App() {
       <Sidebar />
       <main className="content-panel">
         <DashboardHeader />
-        <TaskOverview />
+        <TaskOverview onTaskCreated={loadTasks} />
         <TaskList tasks={tasks} />
       </main>
     </div>
